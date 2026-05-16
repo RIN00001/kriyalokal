@@ -1,12 +1,53 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\SellerApplicationController;
 use App\Http\Controllers\Auth\GoogleAuthController;
-use App\Http\Controllers\Seller\ProductController as SellerProductController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProductBrowseController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SellerApplicationController;
+use App\Http\Controllers\Seller\OrderController as SellerOrderController;
+use App\Http\Controllers\Seller\ProductController as SellerProductController;
+use App\Http\Controllers\Seller\ReportController as SellerReportController;
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Public Pages
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/', function () {
+    return view('welcome');
+})->name('home');
+
+Route::get('/partners', function () {
+    return view('pages.partners');
+})->name('partners');
+
+Route::get('/about', function () {
+    return view('pages.about');
+})->name('about');
+
+/*
+|--------------------------------------------------------------------------
+| Public Product Browsing
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/products', [ProductBrowseController::class, 'index'])
+    ->name('products.index');
+
+Route::get('/products/{product:slug}', [ProductBrowseController::class, 'show'])
+    ->name('products.show');
+
+/*
+|--------------------------------------------------------------------------
+| Google Authentication
+|--------------------------------------------------------------------------
+*/
 
 Route::get('/auth/google', [GoogleAuthController::class, 'redirect'])
     ->name('google.redirect');
@@ -14,24 +55,21 @@ Route::get('/auth/google', [GoogleAuthController::class, 'redirect'])
 Route::get('/auth/google/callback', [GoogleAuthController::class, 'callback'])
     ->name('google.callback');
 
-Route::middleware(['auth', 'role:customer'])->group(function () {
-    Route::get('/become-seller', [SellerApplicationController::class, 'create'])
-        ->name('seller-applications.create');
+/*
+|--------------------------------------------------------------------------
+| Authenticated Dashboard
+|--------------------------------------------------------------------------
+*/
 
-    Route::post('/become-seller', [SellerApplicationController::class, 'store'])
-        ->name('seller-applications.store');
-});
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->middleware(['auth'])
+    ->name('dashboard');
 
-Route::middleware(['auth', 'role:seller'])
-    ->prefix('seller')
-    ->name('seller.')
-    ->group(function () {
-        Route::resource('products', SellerProductController::class);
-        Route::patch('/products/{product}/toggle', [SellerProductController::class, 'toggle'])
-            ->name('products.toggle');
-    });
-
-use App\Http\Controllers\CartController;
+/*
+|--------------------------------------------------------------------------
+| Customer + Seller Shared Routes
+|--------------------------------------------------------------------------
+*/
 
 Route::middleware(['auth', 'role:customer,seller'])->group(function () {
     Route::get('/cart', [CartController::class, 'index'])
@@ -45,18 +83,10 @@ Route::middleware(['auth', 'role:customer,seller'])->group(function () {
 
     Route::delete('/cart/items/{cartItem}', [CartController::class, 'destroy'])
         ->name('cart.items.destroy');
-});
 
-
-
-Route::middleware(['auth', 'role:customer,seller'])->group(function () {
     Route::post('/checkout', [CheckoutController::class, 'store'])
         ->name('checkout.store');
-});
 
-use App\Http\Controllers\OrderController;
-
-Route::middleware(['auth', 'role:customer,seller'])->group(function () {
     Route::get('/orders', [OrderController::class, 'index'])
         ->name('orders.index');
 
@@ -70,12 +100,39 @@ Route::middleware(['auth', 'role:customer,seller'])->group(function () {
         ->name('orders.success');
 });
 
-use App\Http\Controllers\Seller\OrderController as SellerOrderController;
+/*
+|--------------------------------------------------------------------------
+| Seller Application
+|--------------------------------------------------------------------------
+*/
+
+Route::middleware(['auth', 'role:customer'])->group(function () {
+    Route::get('/become-seller', [SellerApplicationController::class, 'create'])
+        ->name('seller-applications.create');
+
+    Route::post('/become-seller', [SellerApplicationController::class, 'store'])
+        ->name('seller-applications.store');
+});
+
+/*
+|--------------------------------------------------------------------------
+| Seller Routes
+|--------------------------------------------------------------------------
+*/
 
 Route::middleware(['auth', 'role:seller'])
     ->prefix('seller')
     ->name('seller.')
     ->group(function () {
+        Route::get('/dashboard', function () {
+            return view('seller.dashboard');
+        })->name('dashboard');
+
+        Route::resource('products', SellerProductController::class);
+
+        Route::patch('/products/{product}/toggle', [SellerProductController::class, 'toggle'])
+            ->name('products.toggle');
+
         Route::get('/orders', [SellerOrderController::class, 'index'])
             ->name('orders.index');
 
@@ -84,6 +141,62 @@ Route::middleware(['auth', 'role:seller'])
 
         Route::patch('/orders/items/{orderItem}/reject', [SellerOrderController::class, 'reject'])
             ->name('orders.items.reject');
+
+        Route::get('/reports', [SellerReportController::class, 'index'])
+            ->name('reports.index');
+
+        Route::post('/reports/generate', [SellerReportController::class, 'generate'])
+            ->name('reports.generate');
+
+        Route::get('/reports/export', [SellerReportController::class, 'export'])
+            ->name('reports.export');
     });
 
-require __DIR__.'/auth.php';
+/*
+|--------------------------------------------------------------------------
+| Employee Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::middleware(['auth', 'role:employee'])
+    ->prefix('employee')
+    ->name('employee.')
+    ->group(function () {
+        Route::get('/dashboard', function () {
+            return view('employee.dashboard');
+        })->name('dashboard');
+    });
+
+/*
+|--------------------------------------------------------------------------
+| Admin Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::middleware(['auth', 'role:admin'])
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
+        Route::get('/dashboard', function () {
+            return view('admin.dashboard');
+        })->name('dashboard');
+    });
+
+/*
+|--------------------------------------------------------------------------
+| Breeze Profile Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])
+        ->name('profile.edit');
+
+    Route::patch('/profile', [ProfileController::class, 'update'])
+        ->name('profile.update');
+
+    Route::delete('/profile', [ProfileController::class, 'destroy'])
+        ->name('profile.destroy');
+});
+
+require __DIR__ . '/auth.php';
