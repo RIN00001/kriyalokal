@@ -1,27 +1,24 @@
-<x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600">
-        {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
-    </div>
+@extends('layouts.market')
 
-    <form method="POST" action="{{ route('password.confirm') }}">
-        @csrf
+@section('title', 'Konfirmasi Password - KriyaLokal')
 
-        <!-- Password -->
-        <div>
-            <x-input-label for="password" :value="__('Password')" />
+@section('content')
+    <section class="mx-auto max-w-md px-4 py-12 sm:px-6 lg:px-8">
+        <div class="rounded-lg border border-[#eadcc8] bg-white p-6 shadow-sm">
+            <h1 class="text-2xl font-extrabold text-[#2f221b]">Konfirmasi Password</h1>
+            <p class="mt-2 text-sm leading-6 text-[#755846]">Masukkan password untuk melanjutkan ke area aman akun.</p>
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+            <form method="POST" action="{{ route('password.confirm') }}" class="mt-6 space-y-5">
+                @csrf
+                <div>
+                    <label for="password" class="text-sm font-bold text-[#3a281f]">Password</label>
+                    <input id="password" name="password" type="password" required autocomplete="current-password" class="mt-2 w-full rounded-md border-[#d8c4aa] bg-[#fffdf8] shadow-sm focus:border-[#b85f2f] focus:ring-[#b85f2f]">
+                    <x-form-error name="password" />
+                </div>
+                <button type="submit" class="w-full rounded-md bg-[#b85f2f] px-4 py-3 text-sm font-bold text-white shadow-sm transition hover:bg-[#9c4f26]">
+                    Konfirmasi
+                </button>
+            </form>
         </div>
-
-        <div class="flex justify-end mt-4">
-            <x-primary-button>
-                {{ __('Confirm') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+    </section>
+@endsection

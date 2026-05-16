@@ -22,6 +22,7 @@ class OrderController extends Controller
     public function accept(OrderItem $orderItem)
     {
         $this->authorizeOrderItem($orderItem);
+        $this->ensurePending($orderItem);
 
         $orderItem->update([
             'seller_status' => 'accepted',
@@ -33,6 +34,7 @@ class OrderController extends Controller
     public function reject(OrderItem $orderItem)
     {
         $this->authorizeOrderItem($orderItem);
+        $this->ensurePending($orderItem);
 
         $orderItem->update([
             'seller_status' => 'rejected',
@@ -44,5 +46,12 @@ class OrderController extends Controller
     private function authorizeOrderItem(OrderItem $orderItem): void
     {
         abort_if($orderItem->seller_id !== auth()->user()->seller->id, 403);
+    }
+
+    private function ensurePending(OrderItem $orderItem): void
+    {
+        if ($orderItem->seller_status !== 'pending') {
+            abort(403, 'Order item decision cannot be changed after it has been accepted or rejected.');
+        }
     }
 }

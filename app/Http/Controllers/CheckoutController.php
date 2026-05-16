@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\Payment;
+use App\Services\MidtransService;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Throwable;
 
 class CheckoutController extends Controller
 {
-    public function store()
+    public function store(MidtransService $midtrans)
     {
         $cart = auth()->user()
             ->cart()
@@ -29,6 +31,12 @@ class CheckoutController extends Controller
                 ]);
             }
 
+            if ($item->product->seller_id === auth()->user()->seller?->id) {
+                return back()->withErrors([
+                    'cart' => "Seller tidak bisa membeli produk sendiri: {$item->product->name}.",
+                ]);
+            }
+
             if (! in_array($item->product->selling_type, ['internal', 'both'])) {
                 return back()->withErrors([
                     'cart' => "{$item->product->name} cannot be checked out internally.",
@@ -43,9 +51,10 @@ class CheckoutController extends Controller
         }
 
         $order = DB::transaction(function () use ($cart) {
-            $total = $cart->items->sum(function ($item) {
+            $subtotal = $cart->items->sum(function ($item) {
                 return $item->product->price * $item->quantity;
             });
+            $total = Order::totalWithTax($subtotal);
 
             $order = Order::create([
                 'user_id' => auth()->id(),
@@ -66,7 +75,7 @@ class CheckoutController extends Controller
                     'price' => $product->price,
                     'quantity' => $item->quantity,
                     'subtotal' => $product->price * $item->quantity,
-                    'seller_status' => 'accepted',
+                    'seller_status' => 'pending',
                 ]);
 
                 $product->decrement('stock', $item->quantity);
@@ -84,8 +93,20 @@ class CheckoutController extends Controller
             return $order;
         });
 
+        try {
+            $midtrans->createSnapTransaction($order);
+        } catch (Throwable $exception) {
+            report($exception);
+
+            return redirect()
+                ->route('orders.show', $order)
+                ->withErrors([
+                    'payment' => 'Order berhasil dibuat, tetapi token Midtrans gagal dibuat: ' . $exception->getMessage(),
+                ]);
+        }
+
         return redirect()
             ->route('orders.show', $order)
-            ->with('status', 'Order created successfully.');
+            ->with('status', 'Order berhasil dibuat. Silakan lanjutkan pembayaran Midtrans.');
     }
 }

@@ -22,6 +22,12 @@ class CartController extends Controller
     {
         abort_if(! $product->is_active, 404);
 
+        if ($product->seller_id === auth()->user()->seller?->id) {
+            return back()->withErrors([
+                'product' => 'Seller tidak bisa membeli produk sendiri.',
+            ]);
+        }
+
         if (! in_array($product->selling_type, ['internal', 'both'])) {
             return back()->withErrors([
                 'product' => 'This product can only be purchased through external marketplace.',
@@ -68,6 +74,12 @@ class CartController extends Controller
     public function update(Request $request, CartItem $cartItem)
     {
         $this->authorizeCartItem($cartItem);
+
+        if ($cartItem->product->seller_id === auth()->user()->seller?->id) {
+            return back()->withErrors([
+                'cart' => 'Seller tidak bisa membeli produk sendiri.',
+            ]);
+        }
 
         $data = $request->validate([
             'quantity' => ['required', 'integer', 'min:1'],

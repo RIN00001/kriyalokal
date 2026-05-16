@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\GoogleAuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MidtransPaymentController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductBrowseController;
 use App\Http\Controllers\ProfileController;
@@ -20,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.home');
 })->name('home');
 
 Route::get('/partners', function () {
@@ -54,6 +55,9 @@ Route::get('/auth/google', [GoogleAuthController::class, 'redirect'])
 
 Route::get('/auth/google/callback', [GoogleAuthController::class, 'callback'])
     ->name('google.callback');
+
+Route::post('/midtrans/notification', [MidtransPaymentController::class, 'notification'])
+    ->name('midtrans.notification');
 
 /*
 |--------------------------------------------------------------------------
@@ -92,6 +96,12 @@ Route::middleware(['auth', 'role:customer,seller'])->group(function () {
 
     Route::get('/orders/{order}', [OrderController::class, 'show'])
         ->name('orders.show');
+
+    Route::post('/orders/{order}/payment-token', [MidtransPaymentController::class, 'refresh'])
+        ->name('orders.payment-token');
+
+    Route::post('/orders/{order}/midtrans-callback', [MidtransPaymentController::class, 'clientCallback'])
+        ->name('orders.midtrans-callback');
 
     Route::patch('/orders/{order}/refund', [OrderController::class, 'requestRefund'])
         ->name('orders.refund');
