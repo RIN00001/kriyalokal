@@ -14,17 +14,7 @@
 
         <div class="rounded-lg border border-[#eadcc8] bg-white p-6 shadow-sm">
             <h2 class="text-2xl font-extrabold text-[#2f221b]">Login</h2>
-            <p class="mt-2 text-sm text-[#755846]">Gunakan email dan password, atau lanjutkan dengan Google.</p>
-
-            <a href="{{ route('google.redirect') }}" class="mt-6 flex w-full items-center justify-center rounded-md border border-[#d8c4aa] px-4 py-3 text-sm font-bold text-[#4c392d] transition hover:bg-[#f7ead8]">
-                Lanjutkan dengan Google
-            </a>
-
-            <div class="my-6 flex items-center gap-3 text-xs font-bold uppercase tracking-normal text-[#a88770]">
-                <span class="h-px flex-1 bg-[#eadcc8]"></span>
-                atau
-                <span class="h-px flex-1 bg-[#eadcc8]"></span>
-            </div>
+            <p class="mt-2 text-sm text-[#755846]">Gunakan email dan password</p>
 
             <form method="POST" action="{{ route('login') }}" class="space-y-5">
                 @csrf
