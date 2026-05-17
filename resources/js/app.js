@@ -1,7 +1,10 @@
 import './bootstrap';
-
-import Alpine from 'alpinejs';
-
-window.Alpine = Alpine;
-
-Alpine.start();
+import './kriya/cart.js';
+import './kriya/seller.js';
+import './kriya/hydrate.js';
+import './kriya/checkout.js';
+import './kriya/cart-page.js';
+import './kriya/checkout-summary.js';
+import './kriya/seller-page.js';
+import './kriya/collection-extras.js';
+import './kriya/product-page.js';
