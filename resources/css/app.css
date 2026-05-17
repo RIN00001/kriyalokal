@@ -67,52 +67,33 @@
 /* --- Batik-Inspired Decorative Elements --- */
 @layer components {
 
-    /* Ornamental border strip — mimics batik border patterns */
-    .batik-border-top {
-        position: relative;
-    }
-    .batik-border-top::before {
-        content: '';
-        display: block;
-        width: 100%;
-        height: 5px;
-        background: repeating-linear-gradient(
-            90deg,
-            var(--kriya-400) 0px,
-            var(--kriya-400) 12px,
-            var(--gold-400) 12px,
-            var(--gold-400) 20px,
-            var(--kriya-300) 20px,
-            var(--kriya-300) 28px,
-            var(--gold-400) 28px,
-            var(--gold-400) 36px
-        );
+    /* ---- Batik background (light) — kawung motif, cream base ---- */
+    .batik-bg {
+        background-color: #f5e8d3;
+        background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><ellipse cx='80' cy='55' rx='16' ry='22' fill='none' stroke='rgba(139,72,32,0.22)' stroke-width='1.4'/><ellipse cx='80' cy='105' rx='16' ry='22' fill='none' stroke='rgba(139,72,32,0.22)' stroke-width='1.4'/><ellipse cx='55' cy='80' rx='22' ry='16' fill='none' stroke='rgba(139,72,32,0.22)' stroke-width='1.4'/><ellipse cx='105' cy='80' rx='22' ry='16' fill='none' stroke='rgba(139,72,32,0.22)' stroke-width='1.4'/><circle cx='80' cy='80' r='9' fill='none' stroke='rgba(139,72,32,0.18)' stroke-width='1.4'/><circle cx='80' cy='80' r='3' fill='rgba(139,72,32,0.18)'/><ellipse cx='0' cy='0' rx='16' ry='22' fill='none' stroke='rgba(139,72,32,0.22)' stroke-width='1.4'/><ellipse cx='160' cy='0' rx='16' ry='22' fill='none' stroke='rgba(139,72,32,0.22)' stroke-width='1.4'/><ellipse cx='0' cy='160' rx='16' ry='22' fill='none' stroke='rgba(139,72,32,0.22)' stroke-width='1.4'/><ellipse cx='160' cy='160' rx='16' ry='22' fill='none' stroke='rgba(139,72,32,0.22)' stroke-width='1.4'/><circle cx='40' cy='40' r='3' fill='none' stroke='rgba(139,72,32,0.16)' stroke-width='1'/><circle cx='120' cy='40' r='3' fill='none' stroke='rgba(139,72,32,0.16)' stroke-width='1'/><circle cx='40' cy='120' r='3' fill='none' stroke='rgba(139,72,32,0.16)' stroke-width='1'/><circle cx='120' cy='120' r='3' fill='none' stroke='rgba(139,72,32,0.16)' stroke-width='1'/><path d='M80,33 Q93,44 80,55 Q67,44 80,33Z' fill='rgba(139,72,32,0.13)'/><path d='M80,105 Q93,116 80,127 Q67,116 80,105Z' fill='rgba(139,72,32,0.13)'/><path d='M33,80 Q44,93 55,80 Q44,67 33,80Z' fill='rgba(139,72,32,0.13)'/><path d='M105,80 Q116,93 127,80 Q116,67 105,80Z' fill='rgba(139,72,32,0.13)'/><line x1='0' y1='80' x2='160' y2='80' stroke='rgba(139,72,32,0.05)' stroke-width='0.6'/><line x1='80' y1='0' x2='80' y2='160' stroke='rgba(139,72,32,0.05)' stroke-width='0.6'/></svg>");
+        background-size: 160px 160px;
     }
 
-    /* Subtle batik texture overlay for hero sections */
+    /* ---- Batik background (dark) — kawung motif, deep brown base, gold lines ---- */
+    .batik-bg-dark {
+        background-color: #2a1508;
+        background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><ellipse cx='80' cy='55' rx='16' ry='22' fill='none' stroke='rgba(212,168,56,0.28)' stroke-width='1.4'/><ellipse cx='80' cy='105' rx='16' ry='22' fill='none' stroke='rgba(212,168,56,0.28)' stroke-width='1.4'/><ellipse cx='55' cy='80' rx='22' ry='16' fill='none' stroke='rgba(212,168,56,0.28)' stroke-width='1.4'/><ellipse cx='105' cy='80' rx='22' ry='16' fill='none' stroke='rgba(212,168,56,0.28)' stroke-width='1.4'/><circle cx='80' cy='80' r='9' fill='none' stroke='rgba(212,168,56,0.24)' stroke-width='1.4'/><circle cx='80' cy='80' r='3' fill='rgba(212,168,56,0.24)'/><ellipse cx='0' cy='0' rx='16' ry='22' fill='none' stroke='rgba(212,168,56,0.28)' stroke-width='1.4'/><ellipse cx='160' cy='0' rx='16' ry='22' fill='none' stroke='rgba(212,168,56,0.28)' stroke-width='1.4'/><ellipse cx='0' cy='160' rx='16' ry='22' fill='none' stroke='rgba(212,168,56,0.28)' stroke-width='1.4'/><ellipse cx='160' cy='160' rx='16' ry='22' fill='none' stroke='rgba(212,168,56,0.28)' stroke-width='1.4'/><circle cx='40' cy='40' r='3' fill='none' stroke='rgba(212,168,56,0.2)' stroke-width='1'/><circle cx='120' cy='40' r='3' fill='none' stroke='rgba(212,168,56,0.2)' stroke-width='1'/><circle cx='40' cy='120' r='3' fill='none' stroke='rgba(212,168,56,0.2)' stroke-width='1'/><circle cx='120' cy='120' r='3' fill='none' stroke='rgba(212,168,56,0.2)' stroke-width='1'/><path d='M80,33 Q93,44 80,55 Q67,44 80,33Z' fill='rgba(212,168,56,0.18)'/><path d='M80,105 Q93,116 80,127 Q67,116 80,105Z' fill='rgba(212,168,56,0.18)'/><path d='M33,80 Q44,93 55,80 Q44,67 33,80Z' fill='rgba(212,168,56,0.18)'/><path d='M105,80 Q116,93 127,80 Q116,67 105,80Z' fill='rgba(212,168,56,0.18)'/><line x1='0' y1='80' x2='160' y2='80' stroke='rgba(212,168,56,0.08)' stroke-width='0.6'/><line x1='80' y1='0' x2='80' y2='160' stroke='rgba(212,168,56,0.08)' stroke-width='0.6'/></svg>");
+        background-size: 160px 160px;
+    }
+
+    /* ---- Hero section — batik pattern on warm gradient ---- */
     .batik-texture {
-        background-image:
-            radial-gradient(circle at 20% 50%, rgba(184,96,48,0.08) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, rgba(201,148,32,0.06) 0%, transparent 40%),
-            radial-gradient(circle at 60% 80%, rgba(47,113,104,0.05) 0%, transparent 40%),
-            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Ccircle cx='40' cy='40' r='1.5' fill='%23b86030' opacity='0.08'/%3E%3Ccircle cx='10' cy='10' r='1' fill='%23c99420' opacity='0.06'/%3E%3Ccircle cx='70' cy='70' r='1' fill='%23c99420' opacity='0.06'/%3E%3Ccircle cx='70' cy='10' r='1' fill='%23b86030' opacity='0.05'/%3E%3Ccircle cx='10' cy='70' r='1' fill='%23b86030' opacity='0.05'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><ellipse cx='80' cy='55' rx='16' ry='22' fill='none' stroke='rgba(139,72,32,0.17)' stroke-width='1.4'/><ellipse cx='80' cy='105' rx='16' ry='22' fill='none' stroke='rgba(139,72,32,0.17)' stroke-width='1.4'/><ellipse cx='55' cy='80' rx='22' ry='16' fill='none' stroke='rgba(139,72,32,0.17)' stroke-width='1.4'/><ellipse cx='105' cy='80' rx='22' ry='16' fill='none' stroke='rgba(139,72,32,0.17)' stroke-width='1.4'/><circle cx='80' cy='80' r='9' fill='none' stroke='rgba(139,72,32,0.14)' stroke-width='1.2'/><circle cx='80' cy='80' r='3' fill='rgba(139,72,32,0.14)'/><ellipse cx='0' cy='0' rx='16' ry='22' fill='none' stroke='rgba(139,72,32,0.17)' stroke-width='1.4'/><ellipse cx='160' cy='0' rx='16' ry='22' fill='none' stroke='rgba(139,72,32,0.17)' stroke-width='1.4'/><ellipse cx='0' cy='160' rx='16' ry='22' fill='none' stroke='rgba(139,72,32,0.17)' stroke-width='1.4'/><ellipse cx='160' cy='160' rx='16' ry='22' fill='none' stroke='rgba(139,72,32,0.17)' stroke-width='1.4'/><path d='M80,33 Q93,44 80,55 Q67,44 80,33Z' fill='rgba(139,72,32,0.1)'/><path d='M80,105 Q93,116 80,127 Q67,116 80,105Z' fill='rgba(139,72,32,0.1)'/><path d='M33,80 Q44,93 55,80 Q44,67 33,80Z' fill='rgba(139,72,32,0.1)'/><path d='M105,80 Q116,93 127,80 Q116,67 105,80Z' fill='rgba(139,72,32,0.1)'/></svg>");
+        background-size: 160px 160px;
     }
 
-    /* Hero gradient background */
+    /* Hero gradient background — warm with batik overlay */
     .hero-bg {
-        background:
-            radial-gradient(ellipse at top left, rgba(184,96,48,0.15) 0%, transparent 50%),
-            radial-gradient(ellipse at bottom right, rgba(201,148,32,0.10) 0%, transparent 50%),
-            linear-gradient(160deg, #fdf5ec 0%, #f7ead8 40%, #f2dfc8 100%);
+        background: linear-gradient(160deg, #f5e8d3 0%, #eddcc0 50%, #e6cda8 100%);
     }
 
-    /* Section divider with ornamental pattern */
-    .section-divider {
-        height: 2px;
-        background: linear-gradient(90deg, transparent, var(--kriya-300), var(--gold-400), var(--kriya-300), transparent);
-        margin: 0 auto;
-        max-width: 200px;
-    }
+    /* Section divider — now just hidden, use spacing instead */
+    .section-divider { display: none; }
 
     /* Cultural tag / label */
     .tag-cultural {
@@ -188,12 +169,12 @@
         transform: translateY(-2px);
     }
 
-    /* Navbar glass style */
+    /* Navbar — clean, no bottom border divider */
     .navbar-kriya {
-        background: rgba(253,245,236,0.96);
-        border-bottom: 1px solid var(--warm-200);
+        background: rgba(245,232,211,0.97);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
+        box-shadow: 0 1px 16px rgba(47,26,14,0.08);
     }
 
     /* Gold accent underline for headings */
@@ -220,9 +201,11 @@
         padding: 1.25rem 1.5rem;
     }
 
-    /* Footer cultural */
+    /* Footer cultural — dark brown with gold batik kawung pattern */
     .footer-kriya {
-        background: linear-gradient(160deg, var(--kriya-800) 0%, var(--kriya-900) 100%);
+        background-color: #2a1508;
+        background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><ellipse cx='80' cy='55' rx='16' ry='22' fill='none' stroke='rgba(212,168,56,0.22)' stroke-width='1.4'/><ellipse cx='80' cy='105' rx='16' ry='22' fill='none' stroke='rgba(212,168,56,0.22)' stroke-width='1.4'/><ellipse cx='55' cy='80' rx='22' ry='16' fill='none' stroke='rgba(212,168,56,0.22)' stroke-width='1.4'/><ellipse cx='105' cy='80' rx='22' ry='16' fill='none' stroke='rgba(212,168,56,0.22)' stroke-width='1.4'/><circle cx='80' cy='80' r='9' fill='none' stroke='rgba(212,168,56,0.18)' stroke-width='1.2'/><circle cx='80' cy='80' r='3' fill='rgba(212,168,56,0.2)'/><ellipse cx='0' cy='0' rx='16' ry='22' fill='none' stroke='rgba(212,168,56,0.22)' stroke-width='1.4'/><ellipse cx='160' cy='0' rx='16' ry='22' fill='none' stroke='rgba(212,168,56,0.22)' stroke-width='1.4'/><ellipse cx='0' cy='160' rx='16' ry='22' fill='none' stroke='rgba(212,168,56,0.22)' stroke-width='1.4'/><ellipse cx='160' cy='160' rx='16' ry='22' fill='none' stroke='rgba(212,168,56,0.22)' stroke-width='1.4'/><path d='M80,33 Q93,44 80,55 Q67,44 80,33Z' fill='rgba(212,168,56,0.14)'/><path d='M80,105 Q93,116 80,127 Q67,116 80,105Z' fill='rgba(212,168,56,0.14)'/><path d='M33,80 Q44,93 55,80 Q44,67 33,80Z' fill='rgba(212,168,56,0.14)'/><path d='M105,80 Q116,93 127,80 Q116,67 105,80Z' fill='rgba(212,168,56,0.14)'/></svg>");
+        background-size: 160px 160px;
         color: var(--warm-100);
     }
 
@@ -248,23 +231,8 @@
         justify-content: center;
     }
 
-    /* Decorative diamond separator */
-    .diamond-divider {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        margin: 0 auto;
-    }
-    .diamond-divider::before,
-    .diamond-divider::after {
-        content: '';
-        flex: 1;
-        height: 1px;
-        background: linear-gradient(90deg, transparent, var(--warm-300));
-    }
-    .diamond-divider::after {
-        background: linear-gradient(90deg, var(--warm-300), transparent);
-    }
+    /* Diamond divider removed — use spacing instead */
+    .diamond-divider { display: none; }
 
     /* Scrollbar styling */
     ::-webkit-scrollbar { width: 6px; }

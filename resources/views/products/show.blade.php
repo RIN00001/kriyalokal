@@ -108,7 +108,6 @@
             </div>
 
             {{-- Divider --}}
-            <div class="my-5 section-divider" style="margin:1.5rem 0; max-width:60px;"></div>
 
             {{-- Price --}}
             <p class="text-4xl font-extrabold" style="font-family:'Playfair Display',serif; color:var(--kriya-800);">

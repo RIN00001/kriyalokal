@@ -23,7 +23,6 @@
             Membawa Produk Budaya Indonesia<br>ke Ruang Digital yang Lebih <em class="not-italic" style="color:var(--kriya-400);">Terarah</em>.
         </h1>
         <div class="mt-5 flex justify-center">
-            <div class="section-divider w-24"></div>
         </div>
         <p class="mt-6 max-w-2xl mx-auto text-lg leading-relaxed" style="color:var(--kriya-600);">
             KriyaLokal adalah platform semi e-commerce yang membantu produk budaya lokal mendapatkan

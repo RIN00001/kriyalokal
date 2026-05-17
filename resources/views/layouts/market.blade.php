@@ -16,12 +16,9 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     </head>
-    <body class="antialiased" style="background-color: var(--warm-50); color: var(--kriya-800);">
+    <body class="antialiased" style="background-color: #f5e8d3; color: var(--kriya-800);">
 
-        <!-- Batik ornamental top strip -->
-        <div class="batik-border-top"></div>
-
-        <div class="min-h-screen flex flex-col">
+        <div class="min-h-screen flex flex-col batik-texture">
             @include('partials.market-navbar')
             @include('partials.flash-message')
 

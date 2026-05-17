@@ -16,7 +16,6 @@
      ============================================================ --}}
 <section class="relative overflow-hidden">
 
-    {{-- Background --}}
     <div class="absolute inset-0 hero-bg batik-texture"></div>
 
     {{-- Decorative large ring (right) --}}
@@ -43,7 +42,6 @@
                 <em class="not-italic" style="color: var(--kriya-400);">Dikemas</em> untuk Dunia.
             </h1>
 
-            <div class="mt-5 section-divider" style="max-width:120px; margin:1.5rem 0;"></div>
 
             <p class="max-w-xl text-[1.05rem] leading-relaxed" style="color: var(--kriya-600);">
                 KriyaLokal menghubungkan pelanggan dengan <strong>batik, kerajinan, aksesoris,</strong>
@@ -153,7 +151,6 @@
             <h2 class="mt-2 text-3xl font-bold" style="font-family:'Playfair Display',serif; color:var(--kriya-800);">
                 Produk Budaya yang Sedang Tampil
             </h2>
-            <div class="mt-3 section-divider" style="margin:0; max-width:80px;"></div>
         </div>
         <a href="{{ route('products.index') }}"
            class="text-sm font-bold hover:underline underline-offset-4 transition flex items-center gap-1"
@@ -184,7 +181,7 @@
 {{-- ============================================================
      HOW IT WORKS / VALUE CARDS SECTION
      ============================================================ --}}
-<section class="py-16" style="background: linear-gradient(180deg, var(--warm-100), var(--warm-50));">
+<section class="py-16" style="background-color: #eedfc5;">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {{-- Section header --}}
@@ -248,7 +245,7 @@
      CULTURAL CTA BANNER
      ============================================================ --}}
 <section class="relative overflow-hidden py-16 px-4">
-    <div class="absolute inset-0" style="background: linear-gradient(135deg, var(--kriya-700), var(--kriya-900));"></div>
+    <div class="absolute inset-0 batik-bg-dark"></div>
     {{-- Batik decorative circles --}}
     <div class="pointer-events-none absolute -left-12 -top-12 h-64 w-64 rounded-full opacity-10" style="background: var(--gold-400);"></div>
     <div class="pointer-events-none absolute -right-8 bottom-0 h-48 w-48 rounded-full opacity-8" style="background: var(--kriya-300);"></div>

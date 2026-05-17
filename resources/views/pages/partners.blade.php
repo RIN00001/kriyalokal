@@ -27,7 +27,6 @@
                     <em class="not-italic" style="color:var(--kriya-400);">Etalase Digital</em><br>
                     Berbasis Budaya.
                 </h1>
-                <div class="mt-4 section-divider" style="max-width:80px; margin:1.5rem 0;"></div>
                 <p class="text-base leading-relaxed" style="color:var(--kriya-600);">
                     Partner dapat menampilkan produk budaya, memilih penjualan internal, redirect ke
                     marketplace eksternal, atau menggunakan keduanya sekaligus — dikemas dengan identitas
@@ -125,7 +124,8 @@
 {{-- ============================================================
      HOW TO BECOME SELLER
      ============================================================ --}}
-<section class="py-16" style="background: linear-gradient(180deg, var(--warm-100), var(--warm-50));">
+<section class="py-16" style="background-color: #eedfc5;">
+
     <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
             <span class="tag-cultural">Cara Bergabung</span>

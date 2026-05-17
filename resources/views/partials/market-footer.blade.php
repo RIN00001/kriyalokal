@@ -1,4 +1,4 @@
-<footer class="footer-kriya batik-border-top">
+<footer class="footer-kriya">
     {{-- Top ornamental strip is rendered by batik-border-top --}}
 
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -88,8 +88,8 @@
         </div>
 
         {{-- Bottom bar --}}
-        <div class="flex flex-col items-center justify-between gap-4 border-t py-6 text-xs sm:flex-row"
-             style="border-color: rgba(255,255,255,0.08); color: var(--warm-400);">
+        <div class="flex flex-col items-center justify-between gap-4 pt-6 pb-6 text-xs sm:flex-row"
+             style="border-top: 1px solid rgba(255,255,255,0.07); color: var(--warm-400);">
             <p>© {{ date('Y') }} KriyaLokal. Semua hak dilindungi.</p>
             <p class="flex items-center gap-2">
                 <span class="inline-block w-5 h-px" style="background: var(--gold-400);"></span>
