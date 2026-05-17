@@ -4,7 +4,6 @@ use App\Http\Controllers\Auth\GoogleAuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\KriyaController;
 use App\Http\Controllers\MidtransPaymentController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductBrowseController;
@@ -21,30 +20,15 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
-Route::get('/', [KriyaController::class, 'home'])->name('kriya.home');
-Route::get('/koleksi', [KriyaController::class, 'collection'])->name('kriya.collection');
-Route::get('/koleksi/{slug}', [KriyaController::class, 'product'])->name('kriya.product');
-Route::get('/tentang', [KriyaController::class, 'about'])->name('kriya.about');
-Route::get('/keranjang', [KriyaController::class, 'cart'])->name('kriya.cart');
-Route::get('/checkout', [KriyaController::class, 'checkout'])->name('kriya.checkout');
-Route::get('/pesanan-berhasil', [KriyaController::class, 'orderSuccess'])->name('kriya.order-success');
-Route::get('/penjual', [KriyaController::class, 'seller'])->name('kriya.seller');
-
-Route::redirect('/collection', '/koleksi');
-Route::redirect('/about', '/tentang');
-Route::redirect('/seller', '/penjual');
-Route::redirect('/order-success', '/pesanan-berhasil');
-Route::redirect('/kriya/cart', '/keranjang');
-
-Route::get('/home', function () {
-    return redirect()->route('kriya.home');
+Route::get('/', function () {
+    return view('pages.home');
 })->name('home');
 
 Route::get('/partners', function () {
     return view('pages.partners');
 })->name('partners');
 
-Route::get('/platform/about', function () {
+Route::get('/about', function () {
     return view('pages.about');
 })->name('about');
 

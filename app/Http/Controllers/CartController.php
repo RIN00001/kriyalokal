@@ -66,7 +66,9 @@ class CartController extends Controller
         $cartItem->quantity = $newQuantity;
         $cartItem->save();
 
-        return back()->with('status', 'Product added to cart.');
+        return redirect()
+            ->route('cart.index')
+            ->with('status', 'Product added to cart.');
     }
 
     public function update(Request $request, CartItem $cartItem)
