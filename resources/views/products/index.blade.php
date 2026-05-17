@@ -8,7 +8,9 @@
      PAGE HEADER
      ============================================================ --}}
 <section class="relative overflow-hidden border-b" style="border-color: var(--warm-200);">
-    <div class="absolute inset-0 hero-bg batik-texture opacity-60"></div>
+    <div class="absolute inset-0 hero-bg"></div>
+    <div class="absolute inset-0 batik-texture batik-texture--soft pointer-events-none" aria-hidden="true"></div>
+    <div class="section-edge-fade section-edge-fade--to-light" aria-hidden="true"></div>
     <div class="relative mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <span class="tag-cultural">Katalog Budaya</span>
         <h1 class="mt-2 text-3xl font-bold" style="font-family:'Playfair Display',serif; color:var(--kriya-800);">

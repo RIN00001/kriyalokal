@@ -24,8 +24,8 @@
                     </svg>
                 </span>
                 <span class="flex flex-col leading-none">
-                    <span class="text-[17px] font-extrabold tracking-tight" style="font-family:'Playfair Display',serif; color: var(--kriya-800);">KriyaLokal</span>
-                    <span class="text-[10px] font-semibold tracking-widest uppercase" style="color: var(--kriya-400);">Pasar Budaya</span>
+                    <span class="text-[16px] font-bold tracking-wider" style="font-family:'Cinzel',Georgia,serif; letter-spacing:0.06em; color: var(--kriya-800);">KriyaLokal</span>
+                    <span class="text-[9px] font-semibold tracking-widest uppercase" style="font-family:'Cinzel',Georgia,serif; color: var(--gold-600); letter-spacing:0.2em;">Pasar Budaya</span>
                 </span>
             </a>
 
@@ -34,7 +34,7 @@
 
                 {{-- Core public links --}}
                 @php
-                    $navLink = 'rounded-lg px-3.5 py-2 text-sm font-semibold transition-all duration-150 hover:bg-[#f2e3d0]';
+                    $navLink = 'rounded px-3.5 py-2 text-[0.72rem] font-semibold tracking-wider uppercase transition-all duration-150 hover:bg-[#f2e3d0]';
                     $activeLink = 'bg-[#f2e3d0] font-bold';
                     $idleLink = '';
                 @endphp

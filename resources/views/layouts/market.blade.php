@@ -8,17 +8,17 @@
 
         <title>@yield('title', 'KriyaLokal — Pasar Budaya Indonesia')</title>
 
-        <!-- Google Fonts -->
+        <!-- Google Fonts: Cinzel (display/headings) + Lora (body) -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     </head>
-    <body class="antialiased" style="background-color: #f5e8d3; color: var(--kriya-800);">
+    <body class="antialiased" style="background-color: var(--warm-50); color: var(--kriya-800);">
 
-        <div class="min-h-screen flex flex-col batik-texture">
+        <div class="min-h-screen flex flex-col">
             @include('partials.market-navbar')
             @include('partials.flash-message')
 

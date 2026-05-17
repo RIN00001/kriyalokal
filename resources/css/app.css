@@ -1,5 +1,7 @@
 /* ============================================================
-   KRIYALOKAL — Indonesian Cultural Design System
+   KRIYALOKAL — Indonesian Cultural Design System v2
+   Fonts: Cinzel (headings/logo) · Lora (body)
+   Palette: Deep earthy brown · Parchment cream · Temple gold
    ============================================================ */
 
 @tailwind base;
@@ -12,9 +14,9 @@
 
 /* --- Design Tokens --- */
 :root {
-    /* Brand Palette — warm earthy Indonesian tones */
+    /* Brand Palette — deep earthy Indonesian tones */
     --kriya-900: #1a0e08;
-    --kriya-800: #2f1a0e;
+    --kriya-800: #2c1509;
     --kriya-700: #4a2b16;
     --kriya-600: #6b3c1e;
     --kriya-500: #8c4e28;
@@ -24,126 +26,384 @@
     --kriya-100: #f5dcc6;
     --kriya-50:  #fdf5ec;
 
-    /* Gold accent */
-    --gold-600: #b07e1a;
-    --gold-500: #c99420;
-    --gold-400: #e0b030;
-    --gold-300: #f0cc6a;
-    --gold-100: #fef5cc;
+    /* Temple gold — warm burnished */
+    --gold-700: #7a5412;
+    --gold-600: #9e6e18;
+    --gold-500: #c8901e;
+    --gold-400: #d4a843;
+    --gold-300: #e8c86a;
+    --gold-200: #f2dfa0;
+    --gold-100: #fef5d4;
 
-    /* Teal secondary */
-    --teal-700: #1a4a44;
-    --teal-600: #255f58;
-    --teal-500: #2f7068;
-    --teal-100: #d4efec;
+    /* Parchment cream tones */
+    --parchment-dark:  #e8d5b8;
+    --parchment-mid:   #f0e2cc;
+    --parchment-light: #f8f0e3;
+    --parchment-pale:  #fdf7f0;
 
-    /* Neutral warm tones */
+    /* Neutral warm */
     --warm-50:  #fdf8f3;
     --warm-100: #f7ede0;
     --warm-200: #ead6be;
     --warm-300: #d6b99a;
     --warm-400: #b89478;
     --warm-500: #8c7060;
+
+    /* Teal secondary */
+    --teal-700: #1a4a44;
+    --teal-600: #255f58;
+    --teal-500: #2f7068;
+    --teal-100: #d4efec;
 }
 
-/* --- Base Typography --- */
+/* ============================================================
+   BASE TYPOGRAPHY
+   ============================================================ */
 @layer base {
     html {
         scroll-behavior: smooth;
     }
 
     body {
-        font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
-        background-color: var(--warm-50);
+        font-family: 'Lora', Georgia, serif;
+        background-color: var(--parchment-pale);
         color: var(--kriya-800);
+        font-size: 1rem;
+        line-height: 1.7;
+        letter-spacing: 0.01em;
         -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
     }
 
-    h1, h2, h3, h4 {
-        font-family: 'Playfair Display', Georgia, serif;
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Cinzel', Georgia, serif;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        line-height: 1.2;
+        color: var(--kriya-800);
+    }
+
+    h1 { font-size: clamp(2rem, 4vw + 0.8rem, 3.25rem); }
+    h2 { font-size: clamp(1.5rem, 2.5vw + 0.6rem, 2rem); line-height: 1.25; }
+    h3 { font-size: clamp(1.1rem, 1vw + 0.85rem, 1.3rem); line-height: 1.35; }
+    h4 { font-size: 1rem; line-height: 1.4; }
+
+    p {
+        font-family: 'Lora', Georgia, serif;
+        line-height: 1.75;
+    }
+
+    strong {
+        font-weight: 600;
+        color: var(--kriya-700);
     }
 }
 
-/* --- Batik-Inspired Decorative Elements --- */
+/* ============================================================
+   BATIK PATTERNS — Diagonal crosshatch + Kawung + Radial
+   ============================================================ */
 @layer components {
 
-    /* ---- Batik background (light) — kawung motif, cream base ---- */
-    .batik-bg {
-        background-color: #f5e8d3;
-        background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><ellipse cx='80' cy='55' rx='16' ry='22' fill='none' stroke='rgba(139,72,32,0.22)' stroke-width='1.4'/><ellipse cx='80' cy='105' rx='16' ry='22' fill='none' stroke='rgba(139,72,32,0.22)' stroke-width='1.4'/><ellipse cx='55' cy='80' rx='22' ry='16' fill='none' stroke='rgba(139,72,32,0.22)' stroke-width='1.4'/><ellipse cx='105' cy='80' rx='22' ry='16' fill='none' stroke='rgba(139,72,32,0.22)' stroke-width='1.4'/><circle cx='80' cy='80' r='9' fill='none' stroke='rgba(139,72,32,0.18)' stroke-width='1.4'/><circle cx='80' cy='80' r='3' fill='rgba(139,72,32,0.18)'/><ellipse cx='0' cy='0' rx='16' ry='22' fill='none' stroke='rgba(139,72,32,0.22)' stroke-width='1.4'/><ellipse cx='160' cy='0' rx='16' ry='22' fill='none' stroke='rgba(139,72,32,0.22)' stroke-width='1.4'/><ellipse cx='0' cy='160' rx='16' ry='22' fill='none' stroke='rgba(139,72,32,0.22)' stroke-width='1.4'/><ellipse cx='160' cy='160' rx='16' ry='22' fill='none' stroke='rgba(139,72,32,0.22)' stroke-width='1.4'/><circle cx='40' cy='40' r='3' fill='none' stroke='rgba(139,72,32,0.16)' stroke-width='1'/><circle cx='120' cy='40' r='3' fill='none' stroke='rgba(139,72,32,0.16)' stroke-width='1'/><circle cx='40' cy='120' r='3' fill='none' stroke='rgba(139,72,32,0.16)' stroke-width='1'/><circle cx='120' cy='120' r='3' fill='none' stroke='rgba(139,72,32,0.16)' stroke-width='1'/><path d='M80,33 Q93,44 80,55 Q67,44 80,33Z' fill='rgba(139,72,32,0.13)'/><path d='M80,105 Q93,116 80,127 Q67,116 80,105Z' fill='rgba(139,72,32,0.13)'/><path d='M33,80 Q44,93 55,80 Q44,67 33,80Z' fill='rgba(139,72,32,0.13)'/><path d='M105,80 Q116,93 127,80 Q116,67 105,80Z' fill='rgba(139,72,32,0.13)'/><line x1='0' y1='80' x2='160' y2='80' stroke='rgba(139,72,32,0.05)' stroke-width='0.6'/><line x1='80' y1='0' x2='80' y2='160' stroke='rgba(139,72,32,0.05)' stroke-width='0.6'/></svg>");
-        background-size: 160px 160px;
+    /* ---- SVG pattern definitions ---- */
+    :root {
+        /* Diagonal crosshatch grid — the primary pattern for light backgrounds */
+        --batik-crosshatch: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><path d='M0 40 L40 0' stroke='rgba(139,72,32,0.07)' stroke-width='0.8'/><path d='M-10 30 L30 -10' stroke='rgba(139,72,32,0.05)' stroke-width='0.5'/><path d='M10 50 L50 10' stroke='rgba(139,72,32,0.05)' stroke-width='0.5'/><path d='M0 0 L40 40' stroke='rgba(139,72,32,0.07)' stroke-width='0.8'/><path d='M-10 10 L10 -10' stroke='rgba(139,72,32,0.04)' stroke-width='0.5'/><path d='M30 50 L50 30' stroke='rgba(139,72,32,0.04)' stroke-width='0.5'/></svg>");
+
+        /* Kawung medallion — use on warm/dark sections */
+        --batik-kawung: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80'><ellipse cx='40' cy='20' rx='10' ry='15' fill='none' stroke='rgba(212,168,56,0.09)' stroke-width='1'/><ellipse cx='40' cy='60' rx='10' ry='15' fill='none' stroke='rgba(212,168,56,0.09)' stroke-width='1'/><ellipse cx='20' cy='40' rx='15' ry='10' fill='none' stroke='rgba(212,168,56,0.09)' stroke-width='1'/><ellipse cx='60' cy='40' rx='15' ry='10' fill='none' stroke='rgba(212,168,56,0.09)' stroke-width='1'/><circle cx='40' cy='40' r='6' fill='none' stroke='rgba(212,168,56,0.07)' stroke-width='1'/><circle cx='40' cy='40' r='2' fill='rgba(212,168,56,0.08)'/><ellipse cx='0' cy='0' rx='10' ry='15' fill='none' stroke='rgba(212,168,56,0.06)' stroke-width='0.8'/><ellipse cx='80' cy='0' rx='10' ry='15' fill='none' stroke='rgba(212,168,56,0.06)' stroke-width='0.8'/><ellipse cx='0' cy='80' rx='10' ry='15' fill='none' stroke='rgba(212,168,56,0.06)' stroke-width='0.8'/><ellipse cx='80' cy='80' rx='10' ry='15' fill='none' stroke='rgba(212,168,56,0.06)' stroke-width='0.8'/></svg>");
+
+        /* Combined crosshatch for dark sections (gold strokes) */
+        --batik-crosshatch-gold: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><path d='M0 40 L40 0' stroke='rgba(212,168,56,0.07)' stroke-width='0.8'/><path d='M-10 30 L30 -10' stroke='rgba(212,168,56,0.04)' stroke-width='0.5'/><path d='M10 50 L50 10' stroke='rgba(212,168,56,0.04)' stroke-width='0.5'/><path d='M0 0 L40 40' stroke='rgba(212,168,56,0.07)' stroke-width='0.8'/></svg>");
     }
 
-    /* ---- Batik background (dark) — kawung motif, deep brown base, gold lines ---- */
+    /* Light-background batik texture (crosshatch) */
+    .batik-texture {
+        background-image: var(--batik-crosshatch);
+        background-size: 40px 40px;
+    }
+
+    /* Warm section batik (kawung over parchment) */
+    .batik-bg {
+        background-color: var(--parchment-mid);
+        background-image: var(--batik-crosshatch), var(--batik-kawung);
+        background-size: 40px 40px, 80px 80px;
+    }
+
+    /* Dark section batik (gold kawung over deep brown) */
     .batik-bg-dark {
         background-color: #2a1508;
-        background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><ellipse cx='80' cy='55' rx='16' ry='22' fill='none' stroke='rgba(212,168,56,0.28)' stroke-width='1.4'/><ellipse cx='80' cy='105' rx='16' ry='22' fill='none' stroke='rgba(212,168,56,0.28)' stroke-width='1.4'/><ellipse cx='55' cy='80' rx='22' ry='16' fill='none' stroke='rgba(212,168,56,0.28)' stroke-width='1.4'/><ellipse cx='105' cy='80' rx='22' ry='16' fill='none' stroke='rgba(212,168,56,0.28)' stroke-width='1.4'/><circle cx='80' cy='80' r='9' fill='none' stroke='rgba(212,168,56,0.24)' stroke-width='1.4'/><circle cx='80' cy='80' r='3' fill='rgba(212,168,56,0.24)'/><ellipse cx='0' cy='0' rx='16' ry='22' fill='none' stroke='rgba(212,168,56,0.28)' stroke-width='1.4'/><ellipse cx='160' cy='0' rx='16' ry='22' fill='none' stroke='rgba(212,168,56,0.28)' stroke-width='1.4'/><ellipse cx='0' cy='160' rx='16' ry='22' fill='none' stroke='rgba(212,168,56,0.28)' stroke-width='1.4'/><ellipse cx='160' cy='160' rx='16' ry='22' fill='none' stroke='rgba(212,168,56,0.28)' stroke-width='1.4'/><circle cx='40' cy='40' r='3' fill='none' stroke='rgba(212,168,56,0.2)' stroke-width='1'/><circle cx='120' cy='40' r='3' fill='none' stroke='rgba(212,168,56,0.2)' stroke-width='1'/><circle cx='40' cy='120' r='3' fill='none' stroke='rgba(212,168,56,0.2)' stroke-width='1'/><circle cx='120' cy='120' r='3' fill='none' stroke='rgba(212,168,56,0.2)' stroke-width='1'/><path d='M80,33 Q93,44 80,55 Q67,44 80,33Z' fill='rgba(212,168,56,0.18)'/><path d='M80,105 Q93,116 80,127 Q67,116 80,105Z' fill='rgba(212,168,56,0.18)'/><path d='M33,80 Q44,93 55,80 Q44,67 33,80Z' fill='rgba(212,168,56,0.18)'/><path d='M105,80 Q116,93 127,80 Q116,67 105,80Z' fill='rgba(212,168,56,0.18)'/><line x1='0' y1='80' x2='160' y2='80' stroke='rgba(212,168,56,0.08)' stroke-width='0.6'/><line x1='80' y1='0' x2='80' y2='160' stroke='rgba(212,168,56,0.08)' stroke-width='0.6'/></svg>");
-        background-size: 160px 160px;
+        background-image: var(--batik-crosshatch-gold), var(--batik-kawung);
+        background-size: 40px 40px, 80px 80px;
     }
 
-    /* ---- Hero section — batik pattern on warm gradient ---- */
-    .batik-texture {
-        background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><ellipse cx='80' cy='55' rx='16' ry='22' fill='none' stroke='rgba(139,72,32,0.17)' stroke-width='1.4'/><ellipse cx='80' cy='105' rx='16' ry='22' fill='none' stroke='rgba(139,72,32,0.17)' stroke-width='1.4'/><ellipse cx='55' cy='80' rx='22' ry='16' fill='none' stroke='rgba(139,72,32,0.17)' stroke-width='1.4'/><ellipse cx='105' cy='80' rx='22' ry='16' fill='none' stroke='rgba(139,72,32,0.17)' stroke-width='1.4'/><circle cx='80' cy='80' r='9' fill='none' stroke='rgba(139,72,32,0.14)' stroke-width='1.2'/><circle cx='80' cy='80' r='3' fill='rgba(139,72,32,0.14)'/><ellipse cx='0' cy='0' rx='16' ry='22' fill='none' stroke='rgba(139,72,32,0.17)' stroke-width='1.4'/><ellipse cx='160' cy='0' rx='16' ry='22' fill='none' stroke='rgba(139,72,32,0.17)' stroke-width='1.4'/><ellipse cx='0' cy='160' rx='16' ry='22' fill='none' stroke='rgba(139,72,32,0.17)' stroke-width='1.4'/><ellipse cx='160' cy='160' rx='16' ry='22' fill='none' stroke='rgba(139,72,32,0.17)' stroke-width='1.4'/><path d='M80,33 Q93,44 80,55 Q67,44 80,33Z' fill='rgba(139,72,32,0.1)'/><path d='M80,105 Q93,116 80,127 Q67,116 80,105Z' fill='rgba(139,72,32,0.1)'/><path d='M33,80 Q44,93 55,80 Q44,67 33,80Z' fill='rgba(139,72,32,0.1)'/><path d='M105,80 Q116,93 127,80 Q116,67 105,80Z' fill='rgba(139,72,32,0.1)'/></svg>");
-        background-size: 160px 160px;
+    /* Overlay on top of content for subtle texture only */
+    .batik-texture--soft {
+        opacity: 0.45;
+    }
+    .batik-bg--soft,
+    .batik-bg-dark--soft {
+        opacity: 0.4;
     }
 
-    /* Hero gradient background — warm with batik overlay */
+    /* Hero gradient — deep parchment */
     .hero-bg {
-        background: linear-gradient(160deg, #f5e8d3 0%, #eddcc0 50%, #e6cda8 100%);
+        background:
+            radial-gradient(ellipse 80% 60% at 70% 40%, rgba(212,168,56,0.08) 0%, transparent 60%),
+            radial-gradient(ellipse 60% 80% at 20% 80%, rgba(139,72,32,0.06) 0%, transparent 55%),
+            linear-gradient(160deg, #f8f0e3 0%, #f0e2cc 45%, #e8d5b8 100%);
     }
 
-    /* Section divider — now just hidden, use spacing instead */
-    .section-divider { display: none; }
+    /* ---- Seamless section backgrounds & edge blends ---- */
+    .section-panel--light {
+        background:
+            var(--batik-crosshatch),
+            linear-gradient(180deg, var(--parchment-pale) 0%, var(--parchment-light) 100%);
+        background-size: 40px 40px, 100% 100%;
+    }
 
-    /* Cultural tag / label */
-    .tag-cultural {
-        font-family: 'Plus Jakarta Sans', sans-serif;
-        font-size: 0.7rem;
+    .section-panel--warm {
+        background:
+            var(--batik-crosshatch),
+            linear-gradient(180deg, var(--parchment-light) 0%, var(--parchment-mid) 50%, var(--parchment-dark) 100%);
+        background-size: 40px 40px, 100% 100%;
+    }
+
+    /* CTA section gradient — dark earthy brown */
+    .section-cta-gradient {
+        background:
+            radial-gradient(ellipse 70% 50% at 15% 30%, rgba(212,168,56,0.12) 0%, transparent 55%),
+            radial-gradient(ellipse 50% 60% at 85% 70%, rgba(139,72,32,0.15) 0%, transparent 50%),
+            linear-gradient(175deg, #5a3218 0%, #3d1e0d 30%, #2a1508 65%, #1a0e08 100%);
+    }
+
+    /* ---- Section edge fades — FIXED for smooth transitions ---- */
+    .section-edge-fade {
+        position: absolute;
+        left: 0;
+        right: 0;
+        pointer-events: none;
+        z-index: 2;
+    }
+
+    /* Fades the bottom of hero/light section INTO the light background */
+    .section-edge-fade--to-light {
+        bottom: 0;
+        height: 7rem;
+        background: linear-gradient(to bottom, transparent 0%, var(--parchment-pale) 100%);
+    }
+
+    /* Fades the top of a section FROM the light background */
+    .section-edge-fade--from-light {
+        top: 0;
+        height: 6rem;
+        background: linear-gradient(to bottom, var(--parchment-pale) 0%, transparent 100%);
+    }
+
+    /* Fades from warm parchment to even warmer */
+    .section-edge-fade--to-warm {
+        bottom: 0;
+        height: 6rem;
+        background: linear-gradient(to bottom, transparent 0%, var(--parchment-mid) 100%);
+    }
+
+    /* Fades bottom of warm section smoothly into the dark CTA */
+    .section-edge-fade--to-dark {
+        bottom: 0;
+        height: 9rem;
+        background: linear-gradient(to bottom,
+            transparent 0%,
+            rgba(90,50,24,0.15) 35%,
+            rgba(61,30,13,0.55) 65%,
+            #2a1508 100%
+        );
+    }
+
+    .section-edge-fade--from-warm {
+        top: 0;
+        height: 6rem;
+        background: linear-gradient(to bottom, var(--parchment-mid) 0%, transparent 100%);
+    }
+
+    /* Fades the bottom of the CTA section into the footer */
+    .section-edge-fade--to-footer {
+        bottom: 0;
+        height: 6rem;
+        background: linear-gradient(to bottom, transparent 0%, #1a0e08 100%);
+    }
+
+    /* ============================================================
+       TYPOGRAPHY UTILITIES
+       ============================================================ */
+    .font-display {
+        font-family: 'Cinzel', Georgia, serif;
+    }
+
+    .font-body {
+        font-family: 'Lora', Georgia, serif;
+    }
+
+    .text-hero {
+        font-family: 'Cinzel', Georgia, serif;
+        font-size: clamp(2rem, 3.8vw + 0.8rem, 3.2rem);
         font-weight: 700;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--kriya-400);
+        line-height: 1.15;
+        letter-spacing: 0.04em;
+        color: var(--kriya-800);
     }
 
-    /* Kriya button primary */
+    .text-section-title {
+        font-family: 'Cinzel', Georgia, serif;
+        font-size: clamp(1.4rem, 2vw + 0.7rem, 1.85rem);
+        font-weight: 700;
+        line-height: 1.25;
+        letter-spacing: 0.04em;
+        color: var(--kriya-800);
+    }
+
+    .text-section-title.text-white {
+        color: #fff;
+    }
+
+    .text-lead {
+        font-family: 'Lora', Georgia, serif;
+        font-size: clamp(1rem, 0.5vw + 0.92rem, 1.1rem);
+        line-height: 1.8;
+        letter-spacing: 0.01em;
+        color: var(--kriya-600);
+        max-width: 42rem;
+    }
+
+    .text-body-muted {
+        font-family: 'Lora', Georgia, serif;
+        font-size: 0.9375rem;
+        line-height: 1.75;
+        color: var(--kriya-600);
+    }
+
+    .text-accent-gold {
+        color: var(--gold-500);
+    }
+
+    /* Cinzel uppercase label / cultural tag */
+    .tag-cultural {
+        font-family: 'Cinzel', Georgia, serif;
+        font-size: 0.65rem;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--gold-600);
+    }
+
+    /* ============================================================
+       GOLD DECORATIVE ACCENT SYSTEM
+       ============================================================ */
+
+    /* Corner ornament using CSS — placed via ::before/::after on parent */
+    .ornament-corner {
+        position: relative;
+    }
+    .ornament-corner::before,
+    .ornament-corner::after {
+        content: '';
+        position: absolute;
+        width: 28px;
+        height: 28px;
+        border-color: var(--gold-400);
+        border-style: solid;
+        opacity: 0.6;
+    }
+    .ornament-corner::before {
+        top: 10px; left: 10px;
+        border-width: 2px 0 0 2px;
+    }
+    .ornament-corner::after {
+        bottom: 10px; right: 10px;
+        border-width: 0 2px 2px 0;
+    }
+
+    /* Gold divider line with central diamond */
+    .gold-divider {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        width: 100%;
+    }
+    .gold-divider::before,
+    .gold-divider::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--gold-400), transparent);
+        opacity: 0.6;
+    }
+
+    /* Gradient border card (gold shimmer) */
+    .gold-border-card {
+        background: linear-gradient(var(--parchment-pale), var(--parchment-pale)) padding-box,
+                    linear-gradient(135deg, var(--gold-400), var(--gold-200), var(--gold-400)) border-box;
+        border: 1.5px solid transparent;
+        border-radius: 12px;
+    }
+
+    /* Section label pill */
+    .label-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.3rem 1rem;
+        border-radius: 100px;
+        border: 1px solid rgba(212,168,56,0.4);
+        background: rgba(212,168,56,0.08);
+        font-family: 'Cinzel', Georgia, serif;
+        font-size: 0.62rem;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--gold-600);
+    }
+
+    /* ============================================================
+       BUTTONS
+       ============================================================ */
     .btn-kriya {
         display: inline-flex;
         align-items: center;
         justify-content: center;
         gap: 0.5rem;
-        padding: 0.65rem 1.5rem;
-        background: linear-gradient(135deg, var(--kriya-400), var(--kriya-500));
+        padding: 0.65rem 1.6rem;
+        background: linear-gradient(135deg, var(--kriya-400), var(--kriya-600));
         color: #fff;
-        font-family: 'Plus Jakarta Sans', sans-serif;
-        font-weight: 700;
-        font-size: 0.875rem;
-        border-radius: 6px;
-        border: 1px solid rgba(0,0,0,0.08);
-        box-shadow: 0 2px 8px rgba(184,96,48,0.25), inset 0 1px 0 rgba(255,255,255,0.1);
+        font-family: 'Cinzel', Georgia, serif;
+        font-weight: 600;
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        border-radius: 4px;
+        border: 1px solid rgba(0,0,0,0.12);
+        box-shadow: 0 2px 8px rgba(107,60,30,0.3), inset 0 1px 0 rgba(255,255,255,0.1);
         transition: all 0.2s ease;
         cursor: pointer;
         text-decoration: none;
     }
     .btn-kriya:hover {
-        background: linear-gradient(135deg, var(--kriya-500), var(--kriya-600));
-        box-shadow: 0 4px 14px rgba(184,96,48,0.35);
+        background: linear-gradient(135deg, var(--kriya-500), var(--kriya-700));
+        box-shadow: 0 4px 16px rgba(107,60,30,0.4);
         transform: translateY(-1px);
     }
 
-    /* Kriya button secondary (outlined) */
     .btn-kriya-outline {
         display: inline-flex;
         align-items: center;
         justify-content: center;
         gap: 0.5rem;
-        padding: 0.65rem 1.5rem;
-        background: rgba(255,255,255,0.7);
-        color: var(--kriya-600);
-        font-family: 'Plus Jakarta Sans', sans-serif;
-        font-weight: 700;
-        font-size: 0.875rem;
-        border-radius: 6px;
-        border: 1.5px solid var(--kriya-300);
+        padding: 0.65rem 1.6rem;
+        background: rgba(255,255,255,0.6);
+        color: var(--kriya-700);
+        font-family: 'Cinzel', Georgia, serif;
+        font-weight: 600;
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        border-radius: 4px;
+        border: 1.5px solid rgba(212,168,56,0.5);
         transition: all 0.2s ease;
         cursor: pointer;
         text-decoration: none;
@@ -151,30 +411,93 @@
     }
     .btn-kriya-outline:hover {
         background: rgba(255,255,255,0.9);
-        border-color: var(--kriya-400);
-        box-shadow: 0 2px 8px rgba(184,96,48,0.12);
+        border-color: var(--gold-400);
+        box-shadow: 0 2px 12px rgba(184,96,48,0.15);
         transform: translateY(-1px);
     }
 
-    /* Card with cultural style */
+    /* ============================================================
+       CARDS
+       ============================================================ */
     .card-kriya {
-        background: #fff;
-        border: 1px solid var(--warm-200);
-        border-radius: 12px;
-        box-shadow: 0 2px 12px rgba(47,26,14,0.06), 0 1px 3px rgba(47,26,14,0.04);
-        transition: box-shadow 0.25s ease, transform 0.25s ease;
+        background: linear-gradient(180deg, #ffffff 0%, #fffcf7 100%);
+        border: 1px solid rgba(214,185,154,0.5);
+        border-radius: 8px;
+        box-shadow:
+            0 1px 2px rgba(47,26,14,0.04),
+            0 4px 14px rgba(47,26,14,0.06),
+            0 12px 28px rgba(47,26,14,0.04);
+        transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
     }
     .card-kriya:hover {
-        box-shadow: 0 8px 24px rgba(47,26,14,0.10), 0 2px 6px rgba(47,26,14,0.06);
-        transform: translateY(-2px);
+        border-color: rgba(184,96,48,0.28);
+        box-shadow:
+            0 2px 4px rgba(47,26,14,0.05),
+            0 12px 28px rgba(47,26,14,0.10),
+            0 24px 48px rgba(47,26,14,0.06);
+        transform: translateY(-3px);
     }
 
-    /* Navbar — clean, no bottom border divider */
+    .card-elevated {
+        border-radius: 8px;
+        box-shadow:
+            0 2px 8px rgba(26,14,8,0.12),
+            0 16px 40px rgba(26,14,8,0.18);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card-elevated:hover {
+        transform: translateY(-2px);
+        box-shadow:
+            0 4px 12px rgba(26,14,8,0.14),
+            0 20px 48px rgba(26,14,8,0.22);
+    }
+
+    /* Cultural hero cards — traditional style with ornamental borders */
+    .card-cultural {
+        position: relative;
+        border-radius: 6px;
+        overflow: hidden;
+    }
+    .card-cultural::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 6px;
+        border: 1px solid rgba(212,168,56,0.35);
+        pointer-events: none;
+        z-index: 3;
+    }
+
+    /* Corner ornaments for featured card */
+    .card-cultural-ornament::after {
+        content: '';
+        position: absolute;
+        top: 8px; left: 8px;
+        width: 22px; height: 22px;
+        border-top: 2px solid rgba(212,168,56,0.6);
+        border-left: 2px solid rgba(212,168,56,0.6);
+        z-index: 4;
+        pointer-events: none;
+    }
+    .card-cultural-ornament-br {
+        position: absolute;
+        bottom: 8px; right: 8px;
+        width: 22px; height: 22px;
+        border-bottom: 2px solid rgba(212,168,56,0.6);
+        border-right: 2px solid rgba(212,168,56,0.6);
+        z-index: 4;
+        pointer-events: none;
+    }
+
+    /* ============================================================
+       NAVBAR
+       ============================================================ */
     .navbar-kriya {
-        background: rgba(245,232,211,0.97);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        box-shadow: 0 1px 16px rgba(47,26,14,0.08);
+        background: rgba(248,240,227,0.96);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        box-shadow: 0 1px 0 rgba(212,168,56,0.2), 0 2px 16px rgba(47,26,14,0.08);
+        border-bottom: 1px solid rgba(212,168,56,0.15);
     }
 
     /* Gold accent underline for headings */
@@ -188,42 +511,58 @@
         bottom: -6px;
         left: 0;
         width: 60%;
-        height: 3px;
-        background: linear-gradient(90deg, var(--gold-400), var(--kriya-300));
+        height: 2px;
+        background: linear-gradient(90deg, var(--gold-400), transparent);
         border-radius: 2px;
     }
 
-    /* Stat box cultural */
+    /* Stat box */
     .stat-box {
-        background: linear-gradient(135deg, var(--kriya-50), #fff);
+        background: linear-gradient(135deg, var(--parchment-pale), #fff);
         border: 1px solid var(--warm-200);
-        border-radius: 10px;
+        border-radius: 8px;
         padding: 1.25rem 1.5rem;
     }
 
-    /* Footer cultural — dark brown with gold batik kawung pattern */
+    /* ============================================================
+       FOOTER
+       ============================================================ */
     .footer-kriya {
-        background-color: #2a1508;
-        background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><ellipse cx='80' cy='55' rx='16' ry='22' fill='none' stroke='rgba(212,168,56,0.22)' stroke-width='1.4'/><ellipse cx='80' cy='105' rx='16' ry='22' fill='none' stroke='rgba(212,168,56,0.22)' stroke-width='1.4'/><ellipse cx='55' cy='80' rx='22' ry='16' fill='none' stroke='rgba(212,168,56,0.22)' stroke-width='1.4'/><ellipse cx='105' cy='80' rx='22' ry='16' fill='none' stroke='rgba(212,168,56,0.22)' stroke-width='1.4'/><circle cx='80' cy='80' r='9' fill='none' stroke='rgba(212,168,56,0.18)' stroke-width='1.2'/><circle cx='80' cy='80' r='3' fill='rgba(212,168,56,0.2)'/><ellipse cx='0' cy='0' rx='16' ry='22' fill='none' stroke='rgba(212,168,56,0.22)' stroke-width='1.4'/><ellipse cx='160' cy='0' rx='16' ry='22' fill='none' stroke='rgba(212,168,56,0.22)' stroke-width='1.4'/><ellipse cx='0' cy='160' rx='16' ry='22' fill='none' stroke='rgba(212,168,56,0.22)' stroke-width='1.4'/><ellipse cx='160' cy='160' rx='16' ry='22' fill='none' stroke='rgba(212,168,56,0.22)' stroke-width='1.4'/><path d='M80,33 Q93,44 80,55 Q67,44 80,33Z' fill='rgba(212,168,56,0.14)'/><path d='M80,105 Q93,116 80,127 Q67,116 80,105Z' fill='rgba(212,168,56,0.14)'/><path d='M33,80 Q44,93 55,80 Q44,67 33,80Z' fill='rgba(212,168,56,0.14)'/><path d='M105,80 Q116,93 127,80 Q116,67 105,80Z' fill='rgba(212,168,56,0.14)'/></svg>");
-        background-size: 160px 160px;
+        position: relative;
+        background-color: #1a0e08;
+        background-image: var(--batik-crosshatch-gold), var(--batik-kawung);
+        background-size: 40px 40px, 80px 80px;
         color: var(--warm-100);
     }
+    .footer-kriya::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(26,14,8,0.5) 0%, rgba(26,14,8,0.88) 40%);
+        pointer-events: none;
+    }
+    .footer-kriya > * {
+        position: relative;
+        z-index: 1;
+    }
 
-    /* Input cultural style */
+    /* ============================================================
+       FORM INPUTS
+       ============================================================ */
     .input-kriya {
         border: 1.5px solid var(--warm-300);
-        border-radius: 8px;
+        border-radius: 6px;
         background: #fffdf8;
-        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-family: 'Lora', Georgia, serif;
         transition: border-color 0.2s, box-shadow 0.2s;
     }
     .input-kriya:focus {
-        border-color: var(--kriya-400);
-        box-shadow: 0 0 0 3px rgba(184,96,48,0.12);
+        border-color: var(--gold-400);
+        box-shadow: 0 0 0 3px rgba(212,168,56,0.15);
         outline: none;
     }
 
-    /* Product card image placeholder */
+    /* Product placeholder */
     .product-placeholder {
         background: linear-gradient(135deg, var(--warm-100), var(--kriya-100));
         display: flex;
@@ -231,23 +570,26 @@
         justify-content: center;
     }
 
-    /* Diamond divider removed — use spacing instead */
+    /* Legacy */
     .diamond-divider { display: none; }
+    .section-divider { display: none; }
 
-    /* Scrollbar styling */
+    /* Scrollbar */
     ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--warm-50); }
+    ::-webkit-scrollbar-track { background: var(--parchment-pale); }
     ::-webkit-scrollbar-thumb { background: var(--warm-300); border-radius: 3px; }
     ::-webkit-scrollbar-thumb:hover { background: var(--kriya-300); }
 }
 
-/* --- Animations --- */
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
 @layer utilities {
     .animate-fade-up {
-        animation: fadeUp 0.6s ease both;
+        animation: fadeUp 0.65s ease both;
     }
     @keyframes fadeUp {
-        from { opacity: 0; transform: translateY(20px); }
+        from { opacity: 0; transform: translateY(24px); }
         to   { opacity: 1; transform: translateY(0); }
     }
 

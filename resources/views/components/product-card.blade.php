@@ -26,7 +26,7 @@
         @else
             <div class="aspect-square w-full grid place-items-center relative overflow-hidden"
                  style="background: linear-gradient(135deg, var(--warm-100), var(--kriya-100));">
-                <div class="absolute inset-0 batik-texture opacity-30"></div>
+                <div class="absolute inset-0 batik-texture batik-texture--soft pointer-events-none" aria-hidden="true"></div>
                 <div class="relative text-center">
                     <div class="mx-auto h-14 w-14 rounded-full grid place-items-center"
                          style="background:rgba(184,96,48,0.1);">
@@ -61,8 +61,8 @@
         </div>
 
         {{-- Product name --}}
-        <h3 class="mt-2 text-base font-bold leading-snug min-h-[2.8rem]"
-            style="font-family:'Playfair Display',serif; color:var(--kriya-800);">
+        <h3 class="mt-2 text-sm font-bold leading-snug min-h-[2.8rem]"
+            style="font-family:'Cinzel',Georgia,serif; letter-spacing:0.03em; color:var(--kriya-800);">
             <a href="{{ route('products.show', $product) }}"
                class="hover:text-[var(--kriya-400)] transition line-clamp-2">
                 {{ $product->name }}
@@ -78,7 +78,7 @@
         </p>
 
         {{-- Price --}}
-        <p class="mt-3 text-xl font-extrabold" style="font-family:'Playfair Display',serif; color:var(--kriya-800);">
+        <p class="mt-3 text-lg font-bold" style="font-family:'Cinzel',Georgia,serif; letter-spacing:0.03em; color:var(--kriya-800);">
             Rp{{ number_format($product->price, 0, ',', '.') }}
         </p>
 

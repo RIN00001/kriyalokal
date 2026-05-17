@@ -17,12 +17,12 @@
                         </svg>
                     </span>
                     <span>
-                        <span class="block text-lg font-extrabold text-white" style="font-family:'Playfair Display',serif;">KriyaLokal</span>
-                        <span class="block text-xs font-semibold tracking-widest uppercase" style="color: var(--kriya-200);">Pasar Budaya Indonesia</span>
+                        <span class="block text-base font-bold text-white" style="font-family:'Cinzel',Georgia,serif; letter-spacing:0.06em;">KriyaLokal</span>
+                        <span class="block text-[9px] font-semibold tracking-widest uppercase" style="font-family:'Cinzel',Georgia,serif; color: var(--gold-300); letter-spacing:0.2em;">Pasar Budaya Indonesia</span>
                     </span>
                 </div>
 
-                <p class="text-sm leading-7" style="color: var(--kriya-200);">
+                <p class="text-sm leading-7" style="font-family:'Lora',Georgia,serif; color: var(--kriya-200);">
                     Ruang digital untuk menemukan produk budaya Indonesia — dari toko lokal sampai karya modern bernuansa tradisi. Mendukung identitas budaya melalui <em>storytelling visual</em> dan digital engagement.
                 </p>
 
@@ -34,7 +34,7 @@
 
             {{-- Navigation column --}}
             <div>
-                <p class="text-sm font-bold tracking-widest uppercase mb-5" style="color: var(--gold-300);">Jelajah</p>
+                <p class="text-[10px] font-bold tracking-widest uppercase mb-5" style="font-family:'Cinzel',Georgia,serif; letter-spacing:0.2em; color: var(--gold-300);">Jelajah</p>
                 <div class="flex flex-col gap-3 text-sm">
                     <a href="{{ route('home') }}" class="transition hover:text-white flex items-center gap-2 group" style="color: var(--kriya-200);">
                         <span class="inline-block w-0 group-hover:w-3 h-px transition-all" style="background: var(--gold-400);"></span>
@@ -57,7 +57,7 @@
 
             {{-- Info column --}}
             <div>
-                <p class="text-sm font-bold tracking-widest uppercase mb-5" style="color: var(--gold-300);">Platform</p>
+                <p class="text-[10px] font-bold tracking-widest uppercase mb-5" style="font-family:'Cinzel',Georgia,serif; letter-spacing:0.2em; color: var(--gold-300);">Platform</p>
                 <div class="flex flex-col gap-3 text-sm" style="color: var(--kriya-200);">
                     <p class="flex items-start gap-2">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color:var(--gold-400);">

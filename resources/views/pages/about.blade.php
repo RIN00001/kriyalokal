@@ -7,8 +7,10 @@
 {{-- ============================================================
      ABOUT HERO
      ============================================================ --}}
-<section class="relative overflow-hidden">
-    <div class="absolute inset-0 hero-bg batik-texture"></div>
+<section class="relative overflow-hidden pb-2">
+    <div class="absolute inset-0 hero-bg"></div>
+    <div class="absolute inset-0 batik-texture batik-texture--soft pointer-events-none" aria-hidden="true"></div>
+    <div class="section-edge-fade section-edge-fade--to-light" aria-hidden="true"></div>
     <div class="pointer-events-none absolute -right-20 -top-20 h-80 w-80 rounded-full opacity-10"
          style="background: radial-gradient(circle, var(--gold-400) 0%, transparent 70%);"></div>
 
@@ -18,13 +20,16 @@
             Tentang KriyaLokal
             <span class="inline-block w-6 h-px" style="background: var(--kriya-400);"></span>
         </span>
-        <h1 class="mt-5 text-[2.4rem] font-bold leading-tight sm:text-[3rem]"
-            style="font-family:'Playfair Display',serif; color:var(--kriya-800);">
-            Membawa Produk Budaya Indonesia<br>ke Ruang Digital yang Lebih <em class="not-italic" style="color:var(--kriya-400);">Terarah</em>.
+        <h1 class="mt-5 text-[2.2rem] font-bold leading-tight sm:text-[2.8rem]"
+            style="font-family:'Cinzel',Georgia,serif; letter-spacing:0.04em; color:var(--kriya-800);">
+            Membawa Produk Budaya Indonesia<br>ke Ruang Digital yang Lebih <em class="not-italic" style="color:var(--gold-500);">Terarah</em>.
         </h1>
         <div class="mt-5 flex justify-center">
+            <div class="gold-divider max-w-xs">
+                <span style="color:var(--gold-400); font-size:0.65rem;">◆</span>
+            </div>
         </div>
-        <p class="mt-6 max-w-2xl mx-auto text-lg leading-relaxed" style="color:var(--kriya-600);">
+        <p class="mt-6 max-w-2xl mx-auto font-body text-base leading-relaxed" style="color:var(--kriya-600);">
             KriyaLokal adalah platform semi e-commerce yang membantu produk budaya lokal mendapatkan
             eksposur lebih luas. Platform ini mendukung pembelian langsung di website serta tautan ke
             marketplace eksternal milik seller.
@@ -35,7 +40,14 @@
 {{-- ============================================================
      MISSION & VISION CARDS
      ============================================================ --}}
-<section class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+<section class="section-panel--light relative mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+    {{-- Section label --}}
+    <div class="text-center mb-10">
+        <div class="label-pill mx-auto">
+            <span style="color:var(--gold-400);">◆</span>
+            Misi & Visi
+        </div>
+    </div>
 
     <div class="grid gap-6 md:grid-cols-2">
 
@@ -48,8 +60,9 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                 </svg>
             </div>
-            <h2 class="text-xl font-bold mb-3" style="font-family:'Playfair Display',serif; color:var(--kriya-800);">Misi Kami</h2>
-            <p class="text-sm leading-7" style="color:var(--kriya-600);">
+            <h2 class="text-lg font-bold mb-3" style="font-family:'Cinzel',Georgia,serif; letter-spacing:0.05em; color:var(--kriya-800);">Misi Kami</h2>
+            <div class="my-3 w-10 h-px" style="background:linear-gradient(90deg, var(--gold-400), transparent); opacity:0.6;"></div>
+            <p class="font-body text-sm leading-7" style="color:var(--kriya-600);">
                 Membuat batik, kerajinan, aksesoris, dekorasi, dan produk budaya lain lebih mudah ditemukan
                 oleh masyarakat modern. Kami percaya bahwa identitas budaya lokal adalah kekuatan kompetitif
                 yang perlu dikemas dengan storytelling visual yang kuat.
@@ -65,8 +78,9 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
                 </svg>
             </div>
-            <h2 class="text-xl font-bold mb-3" style="font-family:'Playfair Display',serif; color:var(--kriya-800);">Visi Kami</h2>
-            <p class="text-sm leading-7" style="color:var(--kriya-600);">
+            <h2 class="text-lg font-bold mb-3" style="font-family:'Cinzel',Georgia,serif; letter-spacing:0.05em; color:var(--kriya-800);">Visi Kami</h2>
+            <div class="my-3 w-10 h-px" style="background:linear-gradient(90deg, var(--gold-400), transparent); opacity:0.6;"></div>
+            <p class="font-body text-sm leading-7" style="color:var(--kriya-600);">
                 Menjadi jembatan antara UMKM budaya lokal dengan konsumen generasi digital — membantu
                 para pengrajin dan seniman lokal Indonesia untuk meningkatkan diferensiasi produk dan
                 keputusan pembelian konsumen melalui digital engagement.
@@ -81,8 +95,9 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
                 </svg>
             </div>
-            <h2 class="text-xl font-bold mb-3" style="font-family:'Playfair Display',serif; color:var(--kriya-800);">Fitur Prototype</h2>
-            <p class="text-sm leading-7" style="color:var(--kriya-600);">
+            <h2 class="text-lg font-bold mb-3" style="font-family:'Cinzel',Georgia,serif; letter-spacing:0.05em; color:var(--kriya-800);">Fitur Prototype</h2>
+            <div class="my-3 w-10 h-px" style="background:linear-gradient(90deg, var(--gold-400), transparent); opacity:0.6;"></div>
+            <p class="font-body text-sm leading-7" style="color:var(--kriya-600);">
                 Fokus prototype mencakup alur belanja lengkap, keranjang, transaksi, seller CRUD, pencarian
                 & filter produk, serta laporan penjualan dasar. Semua fitur dirancang untuk demonstrasi
                 model bisnis yang tervalidasi.
@@ -97,7 +112,8 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
                 </svg>
             </div>
-            <h2 class="text-xl font-bold mb-3" style="font-family:'Playfair Display',serif; color:var(--kriya-800);">Nilai-Nilai Kami</h2>
+            <h2 class="text-lg font-bold mb-3" style="font-family:'Cinzel',Georgia,serif; letter-spacing:0.05em; color:var(--kriya-800);">Nilai-Nilai Kami</h2>
+            <div class="my-3 w-10 h-px" style="background:linear-gradient(90deg, var(--gold-400), transparent); opacity:0.6;"></div>
             <div class="grid grid-cols-2 gap-3 mt-4">
                 @foreach(['Autentisitas', 'Inovasi', 'Komunitas', 'Kualitas'] as $val)
                 <div class="flex items-center gap-2">
@@ -117,7 +133,7 @@
     <div class="mx-auto max-w-3xl rounded-2xl p-10 text-center relative overflow-hidden"
          style="background: linear-gradient(135deg, var(--kriya-600), var(--kriya-800));">
         <div class="pointer-events-none absolute -left-10 -top-10 h-40 w-40 rounded-full opacity-10" style="background:var(--gold-400);"></div>
-        <h2 class="text-2xl font-bold text-white sm:text-3xl" style="font-family:'Playfair Display',serif;">
+        <h2 class="text-xl font-bold text-white sm:text-2xl" style="font-family:'Cinzel',Georgia,serif; letter-spacing:0.05em;">
             Bergabunglah dengan Gerakan Budaya
         </h2>
         <p class="mt-3 text-sm leading-7" style="color:var(--kriya-200);">

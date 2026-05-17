@@ -53,7 +53,7 @@
                 <div class="aspect-square w-full rounded-2xl border grid place-items-center relative overflow-hidden"
                      style="border-color:var(--warm-200); background: linear-gradient(135deg, var(--warm-100), var(--kriya-100));">
                     {{-- Decorative background --}}
-                    <div class="absolute inset-0 batik-texture opacity-40"></div>
+                    <div class="absolute inset-0 batik-texture batik-texture--soft pointer-events-none" aria-hidden="true"></div>
                     <div class="relative text-center">
                         <div class="mx-auto h-16 w-16 rounded-full grid place-items-center mb-3"
                              style="background:rgba(184,96,48,0.12);">
