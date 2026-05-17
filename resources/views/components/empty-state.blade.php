@@ -1,17 +1,32 @@
 @props([
-    'title' => 'Belum ada data',
+    'title'   => 'Belum ada data',
     'message' => 'Data akan muncul di sini setelah tersedia.',
-    'action' => null,
-    'href' => null,
+    'action'  => null,
+    'href'    => null,
 ])
 
-<div {{ $attributes->merge(['class' => 'rounded-lg border border-dashed border-[#d8c4aa] bg-white/70 p-8 text-center shadow-sm']) }}>
-    <div class="mx-auto grid h-14 w-14 place-items-center rounded-full bg-[#f7ead8] text-xl font-extrabold text-[#b85f2f]">KL</div>
-    <h3 class="mt-4 text-lg font-bold text-[#2f221b]">{{ $title }}</h3>
-    <p class="mx-auto mt-2 max-w-md text-sm leading-6 text-[#755846]">{{ $message }}</p>
+<div {{ $attributes->merge(['class' => 'rounded-2xl border border-dashed p-10 text-center']) }}
+     style="border-color:var(--warm-300); background:rgba(253,248,243,0.7);">
+
+    {{-- Decorative icon --}}
+    <div class="mx-auto h-16 w-16 rounded-full grid place-items-center mb-5 relative"
+         style="background: linear-gradient(135deg, var(--kriya-100), var(--warm-100));">
+        {{-- Diamond motif --}}
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L22 12L12 22L2 12L12 2Z" fill="rgba(184,96,48,0.15)" stroke="var(--kriya-400)" stroke-width="1.5"/>
+            <circle cx="12" cy="12" r="3" fill="var(--kriya-400)" opacity="0.5"/>
+        </svg>
+    </div>
+
+    <h3 class="text-lg font-bold" style="font-family:'Playfair Display',serif; color:var(--kriya-800);">
+        {{ $title }}
+    </h3>
+    <p class="mx-auto mt-2 max-w-sm text-sm leading-6" style="color:var(--kriya-600);">
+        {{ $message }}
+    </p>
 
     @if ($action && $href)
-        <a href="{{ $href }}" class="mt-5 inline-flex items-center justify-center rounded-md bg-[#b85f2f] px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-[#9c4f26]">
+        <a href="{{ $href }}" class="btn-kriya mt-6 inline-flex">
             {{ $action }}
         </a>
     @endif
